@@ -97,7 +97,7 @@ Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of 
 * **Steps:**
 1. Write a variable declaration **without** a semicolon: `int i = 0`
 2. Trigger command completion and look at the suggestions
-3. Add a semicolon: `int i = 0;` and trigger command completion again
+3. Write another variable with a semicolon: `int j = 0;` and trigger command completion again
 4. Compare suggestions
 
 * **Expected result:** IDE should prioritize fixing the syntax error (Insert ';') and limit complex refactoring suggestions that require a valid AST (Abstract Syntax Tree).
@@ -108,7 +108,7 @@ Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of 
 
 ### Future Scope:
 To ensure the reliability of command completion further testing should cover:
-* **PerformanceUnder Heavy Load:** Testing response times and memory consumption in massive enterprise projects (files with >10 000 lines of code) to ensure no UI freezes occur.
+* **Performance Under Heavy Load:** Testing response times and memory consumption in massive enterprise projects (files with >10 000 lines of code) to ensure no UI freezes occur.
 * **Plugin Interoperability:** Verifying if command completion conflicts with other heavily used plugins that manipulates code in the editor e.g. Lombok, Spring Boot tools.
 * **Cross Language Behavior:** Evaluating completion accuracy in mixed Java/Kotlin projects
 * **Complex Code Structures** Testing suggestions inside deeply nested generic types, complex Stream API chains and advances lambda expressions.
