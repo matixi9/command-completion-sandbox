@@ -53,6 +53,20 @@ The statement is correctly completed with a semicolon and formatted. However, th
 * **Actual result:**
   As expected. The IDE successfully generates the variable declaration and places the cursor ready to assign its value.
 
+
+### TC-04: Code Transformation - "Surround with try-catch"
+
+* **Steps:**
+1. Write a statement that throws a checked exception, e.g.: `Files.readAllLines(Path.of("test.txt"));`
+2. Trigger the command completion popup on the statement.
+3. Select the "Surround with try-catch" command.
+
+* **Expected result:**
+  The IDE correctly wraps the statement in a `try-catch` block, automatically identifying the required `IOException` and adding the necessary imports.
+
+* **Actual result:**
+  As expected. The transformation is executed seamlessly, generating syntactically correct code and properly handling the checked exception type.
+
 ---
 
 # Bug Reports:
@@ -86,12 +100,10 @@ Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of 
 3. Add a semicolon: `int i = 0;` and trigger command completion again
 4. Compare suggestions
 
-* **Expected result:**
-Code with a syntax error (missing semicolon) should show fewer or only error fixing suggestions compared to correct code.
-
-* **Actual result:**
-The IDE actually shows more suggestions for the broken code (many of them irrelevant). 
-
+* **Expected result:** IDE should prioritize fixing the syntax error (Insert ';') and limit complex refactoring suggestions that require a valid AST (Abstract Syntax Tree).
+* **Actual result:** When the semicolon is missing, the IDE displays a bloated list of irrelevant refactoring actions. These suggestions disappear once the code is syntactically correct:
+    * **Irrelevant suggestions only present without ';':** *Extract Method*, *Introduce Constant*, *Introduce Field*, *Introduce Parameter*, *Introduce Variable*, *Type Info*.
+    * **Visual noise:** These actions distract from the primary fix (*Insert ';'*) and may fail or behave unpredictably due to incomplete syntax.
 ---
 
 ### Future Scope:
