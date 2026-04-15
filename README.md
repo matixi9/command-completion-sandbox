@@ -5,7 +5,7 @@
 * **IDE:** IntelliJ IDEA 2026.1 (Build #IU-261.22158.277)
 * **JDK:** 26
 * **Language:** JAVA
-* **Hardware:** ASUS Vivobook S14, 16GB RAM, Intel(R) Core(TM) Ultra 5 226V
+* **Hardware:** ASUS Vivobook S14, 16GB RAM, Intel® Core™ Ultra 5 226V
 
 ---
 
@@ -24,6 +24,28 @@ The string is converted to a text block with proper indentation, preserving the 
 * **Actual result:**
 The IDE converts it to """\nJosh""" which introduces awkward formatting and unnecessary line breaks inside a single line array.
 IDE will compile it correctly but it affects readability.
+
+
+### TC-02: Basic statement completion and formatting
+
+* **Steps:**
+1. Write a basic print statement without a semicolon e.g.: `System.out.println(hello)`
+2. Trigger the command completion popup.
+3. Select the default completion suggestion (adding the semicolon).
+
+* **Expected result:**
+The IDE seamlessly completes the statement and appending the missing semicolon, applies proper line formatting, and moves the cursor to end of the statement.
+
+* **Actual result:**
+The statement is correctly completed with a semicolon and formatted. However, the cursor remains positioned **before** the newly added semicolon, rather than moving past it. This might disrupt the typing flow if the user wants to immediately start a new line. 
+
+### TC-03:
+
+* **Steps:**
+
+* **Expected result:**
+
+* **Actual result:**
 
 ---
 
@@ -45,9 +67,10 @@ The full list of completion command  suggestions loads immediately
 * **Actual result:**
 Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of the suggestions appear. On a fresh IDE start, delay can reach up to 2 seconds.
 
-* **Note:** This delay was observed on a machine with Intel(R) Core(TM) Ultra 5 226V and a 16GB RAM.
+* **Note:** This delay was observed on a machine with Intel® Core™ Ultra 5 226V and a 16GB RAM.
 
-### Bug-02: IDE shows more completion options for broken code than for correct one
+
+### BUG-02: IDE shows more completion options for broken code than for correct one
 
 * **Severity:** Minor
 
