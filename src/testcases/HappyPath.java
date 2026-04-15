@@ -1,6 +1,6 @@
 package testcases;
 
-public class HappyPath
+public class HappyPath {
     public static void main(String[] args) {
         // Test case for TC-02: Basic statement completion (missing semicolon)
         System.out.println("Test")
