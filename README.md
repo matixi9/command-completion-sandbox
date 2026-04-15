@@ -1,4 +1,4 @@
-# Command Completion Sandbox & Testing Raport
+# Command Completion Sandbox & Testing Report
 
 
 ## Environment:
@@ -12,15 +12,15 @@
 
 ### TC-01: Replace to text block behavior inside array initializers
 
-* #### Steps:
+* **Steps:**
 1. Define a string array: `String[] names = {"Josh", };`
 2. Trigger command completion on the string literal `"Josh"`
 3. Select the "Replace with text block" command
 
-* #### Expected result:
+* **Expected result:**
 The string is converted to a text block with proper indentation, preserving the array's readability on a single line (if possible).
 
-* #### Actual result:
+* **Actual result:**
 The IDE converts it to """\nJosh""" which introduces awkward formatting and unnecessary line breaks inside a single line array.
 IDE will compile it correctly but it affects readability.
 
@@ -30,19 +30,36 @@ IDE will compile it correctly but it affects readability.
 
 ### BUG-01: [Performance] Command completion experiences a ~0.5sec delay
 
-* #### Severity:
+* **Severity:**
 Minor/UX
 
-* #### Steps:
-1. Write any valid java statement eg.: `String test = "Test";`
+* **Steps:**
+1. Write any valid java statement e.g.: `String test = "Test";`
 2. Trigger any completion command popup
 3. Observe the loading time of the suggested commands
 
-* #### Expected result:
+* **Expected result:**
 The full list of completion command  suggestions loads immediately
 
-* #### Actual result:
-Initially, only 2-3 commands pop up. After about a 0.5 second delay the rest of the suggestions appear. On a fresh IDE start, delay can reach up to 2 seconds.
+* **Actual result:**
+Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of the suggestions appear. On a fresh IDE start, delay can reach up to 2 seconds.
+
+
+### Bug-02: IDE shows more completion options for broken code than for correct one
+
+* **Severity:** Minor
+
+* **Steps:**
+1. Write a variable declaration **without** a semicolon: `int i = 0`
+2. Trigger command completion and look at the suggestions
+3. Add a semicolon: `int i = 0;` and trigger command completion again
+4. Compare suggestions
+
+* **Expected result:**
+Code with a syntax error (missing semicolon) should show fewer or only error fixing suggestions compared to correct code.
+
+* **Actual result:**
+The IDE actually shows more suggestions for the broken code (many of them irrelevant). 
 
 ---
 
