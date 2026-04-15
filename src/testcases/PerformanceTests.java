@@ -6,6 +6,6 @@ public class PerformanceTests {
 
         String test = "Test";
 
-        String[] names = {"Josh", };
+        String[] names = {"Josh", };..
     }
 }
