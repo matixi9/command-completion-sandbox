@@ -107,7 +107,7 @@ Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of 
     * **Irrelevant suggestions only present without ';':** *Extract Method*, *Introduce Constant*, *Introduce Field*, *Introduce Parameter*, *Introduce Variable*, *Type Info*.
     * **Visual noise:** These actions distract from the primary fix (*Insert ';'*) and may fail or behave unpredictably due to incomplete syntax.
 
-* **Reference:** See `BUG-02_Correct_Syntax_Clean_List.lng` , `BUG-02_Invalid_Syntax_Bloated_List_1.png` and `BUG-02_Invalid_Syntax_Bloated_List_2.png`.
+* **Reference:** See `BUG-02_Correct_Syntax_Clean_List.png` , `BUG-02_Invalid_Syntax_Bloated_List_1.png` and `BUG-02_Invalid_Syntax_Bloated_List_2.png`.
 
 ---
 
