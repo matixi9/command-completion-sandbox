@@ -1,11 +1,11 @@
 package testcases;
 
-public class HappyPath {
-
-    public static final String hello = "Hello";
-
+public class HappyPath
     public static void main(String[] args) {
-        System.out.println(hello);
+        // Test case for TC-02: Basic statement completion (missing semicolon)
+        System.out.println("Test")
 
+        // Test case for TC-03: Create local variable
+        System.out.println(hello);
     }
 }

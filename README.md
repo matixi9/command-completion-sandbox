@@ -29,7 +29,7 @@ IDE will compile it correctly but it affects readability.
 ### TC-02: Basic statement completion and formatting
 
 * **Steps:**
-1. Write a basic print statement without a semicolon e.g.: `System.out.println(hello)`
+1. Write a basic print statement without a semicolon e.g.: `System.out.println("Test")`
 2. Trigger the command completion popup.
 3. Select the default completion suggestion (adding the semicolon).
 
@@ -39,13 +39,19 @@ The IDE seamlessly completes the statement and appending the missing semicolon, 
 * **Actual result:**
 The statement is correctly completed with a semicolon and formatted. However, the cursor remains positioned **before** the newly added semicolon, rather than moving past it. This might disrupt the typing flow if the user wants to immediately start a new line. 
 
-### TC-03:
+### TC-03: "Create local variable" action for an unresolved symbol
 
 * **Steps:**
+1. Write a statement using an undeclared variable, e.g., `System.out.println(hello);`
+2. Place the cursor on the unresolved symbol `hello`.
+3. Trigger the command completion popup.
+4. Select the "Create local variable 'hello'" command.
 
 * **Expected result:**
+  The IDE should automatically generate a local variable declaration for `hello` above the current line, correctly inferring the context, and allow immediate assignment of a value
 
 * **Actual result:**
+  As expected. The IDE successfully generates the variable declaration and places the cursor ready to assign its value.
 
 ---
 
