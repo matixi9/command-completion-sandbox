@@ -2,9 +2,10 @@
 
 
 ## Environment:
-* **IDE** IntelliJ IDEA 2026.1 (Build #IU-261.22158.277)
-* **JDK** 26
-* **Language** JAVA
+* **IDE:** IntelliJ IDEA 2026.1 (Build #IU-261.22158.277)
+* **JDK:** 26
+* **Language:** JAVA
+* **Hardware:** ASUS Vivobook S14, 16GB RAM, Intel(R) Core(TM) Ultra 5 226V
 
 ---
 
@@ -44,6 +45,7 @@ The full list of completion command  suggestions loads immediately
 * **Actual result:**
 Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of the suggestions appear. On a fresh IDE start, delay can reach up to 2 seconds.
 
+* **Note:** This delay was observed on a machine with Intel(R) Core(TM) Ultra 5 226V and a 16GB RAM.
 
 ### Bug-02: IDE shows more completion options for broken code than for correct one
 
@@ -64,4 +66,8 @@ The IDE actually shows more suggestions for the broken code (many of them irrele
 ---
 
 ### Future Scope:
-* Performance under heavy load
+To ensure the reliability of command completion further testing should cover:
+* **PerformanceUnder Heavy Load:** Testing response times and memory consumption in massive enterprise projects (files with >10 000 lines of code) to ensure no UI freezes occur.
+* **Plugin Interoperability:** Verifying if command completion conflicts with other heavily used plugins that manipulates code in the editor e.g. Lombok, Spring Boot tools.
+* **Cross Language Behavior:** Evaluating completion accuracy in mixed Java/Kotlin projects
+* **Complex Code Structures** Testing suggestions inside deeply nested generic types, complex Stream API chains and advances lambda expressions.
