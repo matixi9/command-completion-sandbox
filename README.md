@@ -87,6 +87,8 @@ The full list of completion command  suggestions loads immediately
 * **Actual result:**
 Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of the suggestions appear. On a fresh IDE start, delay can reach up to 2 seconds.
 
+* **Reference:** See `BUG-01_Initial_State.png` and `BUG-01_Full_Loaded_Suggestions.png`.
+
 * **Note:** This delay was observed on a machine with Intel® Core™ Ultra 5 226V and a 16GB RAM.
 
 
@@ -104,6 +106,9 @@ Initially, only 2-3 commands pop up. After about a 0.5-second delay the rest of 
 * **Actual result:** When the semicolon is missing, the IDE displays a bloated list of irrelevant refactoring actions. These suggestions disappear once the code is syntactically correct:
     * **Irrelevant suggestions only present without ';':** *Extract Method*, *Introduce Constant*, *Introduce Field*, *Introduce Parameter*, *Introduce Variable*, *Type Info*.
     * **Visual noise:** These actions distract from the primary fix (*Insert ';'*) and may fail or behave unpredictably due to incomplete syntax.
+
+* **Reference:** See `BUG-02_Correct_Syntax_Clean_List.lng` , `BUG-02_Invalid_Syntax_Bloated_List_1.png` and `BUG-02_Invalid_Syntax_Bloated_List_2.png`.
+
 ---
 
 ### Future Scope:
